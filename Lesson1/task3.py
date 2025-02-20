@@ -1,4 +1,4 @@
-def sumNumbers(a, b): # объявление функции
+def sumNumbers(a, b):  # объявление функции
     print(a)
     print(b)
     sum = a+b

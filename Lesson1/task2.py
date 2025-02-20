@@ -27,6 +27,7 @@ print(sunday)
 sunday = weekDays[-1]
 print(sunday)
 
+
 # thursday = weekDays[-4]
 print(weekDays[-4])
 

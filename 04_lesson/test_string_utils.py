@@ -62,7 +62,7 @@ def test_contains_positive(input_str, expected):
     ("  ", "L"),
 ])
 def test_contains_negative(input_str, expected):
-    string_utils.contains(input_str, expected)
+    assert not string_utils.contains(input_str, expected)
 
 
 @pytest.mark.positive

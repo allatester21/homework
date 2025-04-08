@@ -4,7 +4,6 @@ from shop_page_select import Product
 from shop_page_checkout import Checkout
 from shop_page_form import Form
 
-
 def test_shop():
     browser = webdriver.Chrome()
     auth = Authorization(browser)

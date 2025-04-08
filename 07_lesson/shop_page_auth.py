@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
-import time
 
 
-class Authorization():
+class Authorization:
 
     def __init__(self, driver):
         # Инициализируем драйвер браузера
@@ -16,5 +15,4 @@ class Authorization():
 
         username_field.send_keys(username)
         password_field.send_keys(password)
-        time.sleep(2)
         login_button.click()

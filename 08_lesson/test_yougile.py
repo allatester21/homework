@@ -95,8 +95,11 @@ def test_poject_id_positive():
 
 def test_get_companies_negative():
     # Список всех компаний
-    body = get_pojects_list()
-    assert not len(body) == 1
+    # body = get_pojects_list()
+    # assert not len(body) == 1
+    fake_id = "non-existent-id" # предложено наставником
+    response = get_project_id(fake_id)
+    assert response['statusCode'] == 404
 
 
 def test_create_project_negative():

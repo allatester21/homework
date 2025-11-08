@@ -46,40 +46,40 @@ def test_trim_negative(input_str, expected):
 
 
 @pytest.mark.positive
-@pytest.mark.parametrize("input_str, expected", [
-    ("Hello!", "l"),
-    ("SkyPro programm", "P"),
-    ("world43", "d"),
+@pytest.mark.parametrize("input_str, symbol_str, expected", [
+    ("Hello!", "l", True),
+    ("SkyPro programm", "P", True),
+    ("world43", "d", True),
 ])
-def test_contains_positive(input_str, expected):
-    assert string_utils.contains(input_str, expected)
+def test_contains_positive(input_str, symbol_str, expected):
+    assert string_utils.contains(input_str, symbol_str) == expected
 
 
 @pytest.mark.negative
-@pytest.mark.parametrize("input_str, expected", [
-    ("Test result", "a"),
-    ("137 day", "2"),
-    ("  ", "L"),
+@pytest.mark.parametrize("input_str, symbol_str, expected", [
+    ("Test result", "a", False),
+    ("137 day", "2", False),
+    ("  ", "L", False),
 ])
-def test_contains_negative(input_str, expected):
-    assert not string_utils.contains(input_str, expected)
+def test_contains_negative(input_str, symbol_str, expected):
+    assert string_utils.contains(input_str, symbol_str) == expected
 
 
 @pytest.mark.positive
-@pytest.mark.parametrize("input_str, expected", [
-    ("Hello!", "l"),
-    ("SkyPro Programm", "P"),
-    ("world date", "d"),
+@pytest.mark.parametrize("input_str, symbol_str, expected", [
+    ("Hello!", "l", "Heo!"),
+    ("SkyPro Programm", "P", "Skyro rogramm"),
+    ("world date", "d", "worl ate"),
 ])
-def test_delete_symvol_positive(input_str, expected):
-    assert string_utils.delete_symbol(input_str, expected)
+def test_delete_symbol_positive(input_str, symbol_str, expected):
+    assert string_utils.delete_symbol(input_str, symbol_str) == expected
 
 
 @pytest.mark.negative
-@pytest.mark.parametrize("input_str, expected", [
-    ("Hello mam!", "f"),
-    ("37652the", "1"),
-    (" wor ld", ""),
+@pytest.mark.parametrize("input_str, symbol_str, expected", [
+    ("Hello mam!", "f", "Hello mam!"),
+    ("37652the", "1", "37652the"),
+    (" wor ld", "", " wor ld"),
 ])
-def test_delete_symvol_negative(input_str, expected):
-    assert string_utils.delete_symbol(input_str, expected)
+def test_delete_symbol_negative(input_str, symbol_str, expected):
+    assert string_utils.delete_symbol(input_str, symbol_str) == expected
